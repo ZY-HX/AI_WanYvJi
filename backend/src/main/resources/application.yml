@@ -1,0 +1,83 @@
+server:
+  port: ${PORT:8080}
+
+spring:
+  application:
+    name: english-learning-mate
+  config:
+    import: optional:file:./application-local.yml,optional:file:./src/main/resources/application-local.yml
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 5MB
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      database: 0
+      timeout: 500ms
+      connect-timeout: 200ms
+
+redis:
+  circuit-breaker:
+    failure-threshold: 2
+    reset-timeout-seconds: 60
+    half-open-max-probes: 1
+  local-cache:
+    max-size: 10000
+    cleanup-interval-seconds: 60
+
+mybatis-plus:
+  mapper-locations: classpath:mapper/**/*.xml
+  type-aliases-package: com.english.entity
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.nologging.NoLoggingImpl
+  global-config:
+    db-config:
+      id-type: auto
+      logic-delete-field: status
+      logic-not-delete-value: 1
+      logic-delete-value: 0
+
+app:
+  cors:
+    allowed-origin-patterns: http://localhost:*,http://127.0.0.1:*
+  guest:
+    token-validity-days: 7
+    token-renew-limit: 1
+  ai:
+    base-url: https://api.openai.com/v1
+    model: gpt-4o-mini
+    api-key: ${AI_API_KEY:}
+    connect-timeout-ms: 5000
+    read-timeout-ms: 30000
+    max-retries: 2
+    generate-rate-limit-seconds: 10
+    article-daily-quota: 30
+    word-sample-size: 10
+  study:
+    export-daily-quota: 3
+  upload:
+    base-dir: uploads
+    public-base-url: /uploads
+
+jwt:
+  secret: ${JWT_SECRET}
+  expiration: 604800000
+  refresh-expiration: 604800000
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+logging:
+  level:
+    com.english: info

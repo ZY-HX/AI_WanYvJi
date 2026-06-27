@@ -1,0 +1,410 @@
+:root {
+  font-family: Inter, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #1f2937;
+  background: #f3f6fb;
+  --app-header-height: 56px;
+  --page-content-max: 1120px;
+  --page-content-wide-max: 1240px;
+  --panel-radius: 20px;
+  --panel-shadow: 0 16px 36px rgba(15, 23, 42, 0.08);
+  --panel-shadow-hover: 0 20px 42px rgba(15, 23, 42, 0.12);
+  --header-bg: rgba(15, 23, 42, 0.95);
+  --header-border: rgba(51, 65, 85, 0.6);
+  --header-brand: #38bdf8;
+  --header-nav: #94a3b8;
+  --header-hover-bg: rgba(56, 189, 248, 0.12);
+  --header-user: #e2e8f0;
+  --header-user-name: #cbd5e1;
+  --header-user-hover: rgba(255, 255, 255, 0.08);
+  --header-switch-bg: rgba(15, 23, 42, 0.35);
+  --header-switch-border: rgba(148, 163, 184, 0.35);
+  --header-switch-text: #cbd5e1;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  margin: 0;
+  min-height: 100vh;
+}
+
+body {
+  min-width: 320px;
+}
+
+html[data-theme='light'] {
+  --header-bg: rgba(255, 255, 255, 0.95);
+  --header-border: rgba(203, 213, 225, 0.9);
+  --header-brand: #2563eb;
+  --header-nav: #475569;
+  --header-hover-bg: rgba(37, 99, 235, 0.1);
+  --header-user: #1e293b;
+  --header-user-name: #334155;
+  --header-user-hover: rgba(148, 163, 184, 0.16);
+  --header-switch-bg: #f8fafc;
+  --header-switch-border: rgba(148, 163, 184, 0.5);
+  --header-switch-text: #334155;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.page-shell {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background:
+    radial-gradient(circle at top left, rgba(64, 158, 255, 0.18), transparent 30%),
+    linear-gradient(135deg, #eef5ff 0%, #f8fbff 45%, #f2f5fb 100%);
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 460px;
+  padding: 32px 28px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+}
+
+.auth-header {
+  margin-bottom: 28px;
+  text-align: center;
+}
+
+.auth-title {
+  margin: 0 0 8px;
+  font-size: 28px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.auth-subtitle {
+  margin: 0;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.auth-footer {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.auth-footer a {
+  color: #409eff;
+}
+
+.auth-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 4px 0 20px;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.auth-options a {
+  color: #409eff;
+}
+
+.guest-actions {
+  margin-top: 24px;
+}
+
+.page-placeholder {
+  min-height: calc(100vh - var(--app-header-height));
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.placeholder-card {
+  width: 100%;
+  max-width: 680px;
+  padding: 40px 32px;
+  border-radius: 20px;
+  background: #ffffff;
+  text-align: center;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+}
+
+.placeholder-card h1 {
+  margin: 0 0 12px;
+  font-size: 32px;
+  color: #111827;
+}
+
+.placeholder-card p {
+  margin: 0 0 20px;
+  color: #6b7280;
+}
+
+.dashboard-card {
+  text-align: left;
+}
+
+.dashboard-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.guest-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+  padding: 16px 18px;
+  border: 1px solid #f5c97a;
+  border-radius: 16px;
+  background: #fff8e8;
+}
+
+.guest-banner p {
+  margin: 6px 0 0;
+}
+
+.guest-banner-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.dashboard-panel {
+  padding: 20px;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  background: #f8fbff;
+}
+
+.dashboard-panel h3 {
+  margin: 0 0 12px;
+  font-size: 18px;
+  color: #111827;
+}
+
+.dashboard-panel p {
+  margin: 0 0 10px;
+}
+
+/* ===== 通用布局增强（不影响登录/注册结构） ===== */
+.dashboard-page,
+.study-page,
+.wordbank-page,
+.public-wordbank-page,
+.profile-page,
+.error-book-page,
+.ai-reading-page,
+.wordbank-detail-page,
+.detail-dashboard {
+  min-height: calc(100vh - var(--app-header-height));
+}
+
+/* 深色页面统一骨架屏配色，避免默认白色骨架条闪烁 */
+html[data-theme='dark'] {
+  --app-skeleton-base: rgba(37, 52, 74, 0.78);
+  --el-skeleton-color: var(--app-skeleton-base);
+  --el-skeleton-to-color: var(--app-skeleton-base);
+  --el-mask-color: rgba(15, 23, 42, 0.62);
+  --el-fill-color-blank: rgba(15, 23, 42, 0.75);
+}
+
+html[data-theme='light'] {
+  --app-skeleton-base: #d8e2f2;
+}
+
+.el-skeleton__item {
+  border-radius: 10px;
+  background: var(--app-skeleton-base, #d8e2f2) !important;
+}
+
+/* 去掉默认扫光条纹，改为柔和呼吸，避免“条纹闪动”观感 */
+.el-skeleton.is-animated .el-skeleton__item {
+  background-image: none !important;
+  animation: app-skeleton-pulse 1.25s ease-in-out infinite !important;
+}
+
+@keyframes app-skeleton-pulse {
+  0%,
+  100% {
+    opacity: 0.82;
+  }
+  50% {
+    opacity: 0.62;
+  }
+}
+
+html[data-theme='light'] .dashboard-page,
+html[data-theme='light'] .study-page,
+html[data-theme='light'] .wordbank-page,
+html[data-theme='light'] .public-wordbank-page,
+html[data-theme='light'] .profile-page {
+  --el-skeleton-color: var(--app-skeleton-base);
+  --el-skeleton-to-color: var(--app-skeleton-base);
+}
+
+/* 浅色主题主视觉：覆盖原深色页面 */
+html[data-theme='light'] :is(.dashboard-page, .study-page, .wordbank-page, .public-wordbank-page, .profile-page) {
+  background: linear-gradient(180deg, #f8fbff 0%, #edf3ff 100%) !important;
+}
+
+html[data-theme='light'] :is(.dashboard-page, .study-page, .wordbank-page, .public-wordbank-page, .profile-page)
+  :is(h1, h2, h3) {
+  color: #1e293b !important;
+  text-shadow: none !important;
+}
+
+html[data-theme='light'] :is(.dashboard-page, .study-page, .wordbank-page, .public-wordbank-page, .profile-page) p {
+  color: #475569 !important;
+  text-shadow: none !important;
+}
+
+html[data-theme='light'] .dashboard-page :is(.stat-card, .action-card, .study-toolbar, .study-card-panel),
+html[data-theme='light'] .study-page :is(.study-toolbar, .study-card-panel, .study-card),
+html[data-theme='light'] .wordbank-page :is(.wordbank-card, .wordbank-panel),
+html[data-theme='light'] .public-wordbank-page :is(.public-wordbank-card, .public-wordbank-panel),
+html[data-theme='light'] .profile-page :is(.profile-card) {
+  background: #ffffff !important;
+  border-color: #dbe5ff !important;
+  box-shadow: 0 10px 26px rgba(30, 64, 175, 0.08) !important;
+}
+
+html[data-theme='light'] .study-page :is(.study-toolbar__field, .study-toolbar__stats, .study-toolbar__progress, .study-toolbar__quota),
+html[data-theme='light'] .wordbank-page :is(.wordbank-panel__toolbar, .wordbank-card__meta),
+html[data-theme='light'] .public-wordbank-page :is(.public-wordbank-toolbar, .public-wordbank-card__meta),
+html[data-theme='light'] .profile-page :is(.summary-panel__meta p, .profile-card__tip, .profile-form__tip) {
+  color: #475569 !important;
+  text-shadow: none !important;
+}
+
+html[data-theme='light'] .study-page .study-card :is(.study-card__hint, .study-card__subtext, .study-card__footer),
+html[data-theme='light'] .study-page .study-option {
+  color: #334155 !important;
+  text-shadow: none !important;
+}
+
+html[data-theme='light'] .study-page .study-card__body h2 {
+  color: #0f172a !important;
+  text-shadow: none !important;
+}
+
+/* 浅色主题下，覆盖深色 scoped 样式残留（输入框/统计块/模式栏等） */
+html[data-theme='light'] .study-page :is(.study-mode-bar, .study-toolbar) {
+  background: #ffffff !important;
+  border-color: #dbe5ff !important;
+}
+
+html[data-theme='light'] .study-page .study-mode-bar__label,
+html[data-theme='light'] .study-page .study-toolbar__title,
+html[data-theme='light'] .study-page :is(.study-toolbar__field, .study-toolbar__stats, .study-toolbar__progress) {
+  color: #475569 !important;
+  text-shadow: none !important;
+}
+
+html[data-theme='light'] .study-page .study-toolbar__stats span {
+  background: #f1f5ff !important;
+  border-color: #dbe5ff !important;
+  color: #475569 !important;
+}
+
+html[data-theme='light'] .profile-page :is(.profile-card__header, .summary-panel__meta h2) {
+  color: #1e293b !important;
+  text-shadow: none !important;
+}
+
+html[data-theme='light'] .profile-page .el-input__wrapper,
+html[data-theme='light'] .profile-page .el-textarea__inner,
+html[data-theme='light'] .profile-page .el-select__wrapper {
+  background: #ffffff !important;
+  box-shadow: 0 0 0 1px #dbe5ff inset !important;
+}
+
+html[data-theme='light'] .profile-page .el-input__inner,
+html[data-theme='light'] .profile-page .el-textarea__inner {
+  color: #1e293b !important;
+}
+
+html[data-theme='light'] .profile-page .el-input-number__decrease,
+html[data-theme='light'] .profile-page .el-input-number__increase {
+  background: #f8fbff !important;
+  color: #64748b !important;
+  border-color: #dbe5ff !important;
+}
+
+.dashboard-page :is(.el-card, .placeholder-card),
+.study-page :is(.el-card, .study-card),
+.wordbank-page :is(.el-card, .wordbank-card),
+.public-wordbank-page :is(.el-card, .public-wordbank-card),
+.profile-page :is(.el-card),
+.error-book-page :is(.el-card),
+.ai-reading-page :is(.el-card),
+.wordbank-detail-page :is(.el-card),
+.detail-dashboard :is(.stat-card, .chart-card) {
+  border-radius: var(--panel-radius);
+}
+
+@media (max-width: 900px) {
+  .dashboard-page,
+  .study-page,
+  .wordbank-page,
+  .public-wordbank-page,
+  .profile-page,
+  .error-book-page,
+  .ai-reading-page,
+  .wordbank-detail-page,
+  .detail-dashboard {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  .dashboard-page [class$='__actions'],
+  .study-page [class$='__actions'],
+  .wordbank-page [class$='__actions'],
+  .public-wordbank-page [class$='__actions'],
+  .profile-page [class$='__actions'],
+  .error-book-page [class$='__actions'],
+  .ai-reading-page [class$='__actions'],
+  .wordbank-detail-page [class$='__actions'] {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 640px) {
+  .dashboard-page [class$='__actions'] :is(.el-button, button),
+  .study-page [class$='__actions'] :is(.el-button, button),
+  .wordbank-page [class$='__actions'] :is(.el-button, button),
+  .public-wordbank-page [class$='__actions'] :is(.el-button, button),
+  .profile-page [class$='__actions'] :is(.el-button, button),
+  .error-book-page [class$='__actions'] :is(.el-button, button),
+  .ai-reading-page [class$='__actions'] :is(.el-button, button),
+  .wordbank-detail-page [class$='__actions'] :is(.el-button, button) {
+    flex: 1 1 calc(50% - 8px);
+    min-width: 0;
+  }
+}

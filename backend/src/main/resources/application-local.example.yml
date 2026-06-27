@@ -1,0 +1,17 @@
+# Copy this file to application-local.yml for local development only.
+# Do not commit application-local.yml to git.
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/english_learning_mate?useUnicode=true&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: your-local-db-password
+
+app:
+  ai:
+    # Optional: if empty, backend AI calls that require a system key will fail.
+    api-key: your-ai-api-key
+
+jwt:
+  # Use a long random string in local/dev/prod environments.
+  secret: change-this-to-a-long-random-secret

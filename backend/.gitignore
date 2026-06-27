@@ -1,0 +1,12 @@
+# Local secret config
+application-local.yml
+src/main/resources/application-local.yml
+src/main/resources/application-*.local.yml
+
+# Env files
+.env
+.env.*
+!.env.example
+
+# Build output
+target/
